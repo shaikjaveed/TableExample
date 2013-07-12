@@ -21,10 +21,26 @@
     self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    Master *master = [[Master alloc]initWithNibName:@"Master" bundle:nil];
+
+    self.navCtrl = [[UINavigationController alloc]initWithRootViewController:master];
+    
+
+//    UIBarButtonItem *btn = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(navigateToTable:)];
+
+//    [self navigationItem];
+    self.window.rootViewController = self.navCtrl;
     [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
+//-(IBAction)navigateToTable:(id)sender
+//{
+//    Master *m = [[Master alloc]initWithNibName:@"Master" bundle:nil];
+//    [[self navCtrl]pushViewController:m animated:YES];
+//}
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
